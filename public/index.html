@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      blockquote {
+        border: 1px solid black;
+        border-radius: 0.3rem;
+        padding: 0.2rem 0.9rem;
+      }
+      small {
+        display: inline-block;
+        width: 100%;
+        text-align: right;
+        /* padding: 0 2rem; */
+      }
+    </style>
+    <title>website</title>
+  </head>
+  <body>
+    <h1>welcome to my website</h1>
+    <button id="getData">get data</button>
+    <hr />
+    <br />
+    <div id="output"></div>
+    <script>
+      document.getElementById("getData").addEventListener("click", getData);
+
+      function getData() {
+        fetch("/quotes?page:2")
+          .then((res) => res.json())
+          .then((quotes) => {
+            let theQuotes = "";
+            quotes.data.map((data) => {
+              theQuotes += `
+      <blockquote>
+      <q> ${data.quote}</q><br/>
+        <small> the author: ${data.author}
+        </small>
+      </blockquote>
+              `;
+            });
+
+            document.getElementById("output").innerHTML = theQuotes;
+          });
+      }
+    </script>
+  </body>
+</html>
