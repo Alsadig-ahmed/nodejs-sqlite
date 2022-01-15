@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000 ;
 const quotesRouter = require('./routes/quotes');
 
 app.use(express.json());
-app.use(express.urlencoded({extended:true})) // this is to make 
+app.use(express.urlencoded({extended:true})) // this is to make the res body accessible
 
 
 
