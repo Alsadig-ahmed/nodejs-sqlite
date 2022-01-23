@@ -20,12 +20,35 @@
       .center{
         text-align: center;
       }
+      .flex-center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .contact{
+        position: fixed;
+        top: .7rem; left: .7rem;
+        background-color: rgba(29, 240, 194, 0.952);
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+        padding: .5rem;
+        box-shadow: 0 0 1rem .5rem rgba(80, 77, 77, 0.822);
+      }
+      .contact a{
+        color: rgb(55, 54, 56);
+        padding: .5rem;
+        font-size: large;
+      }
+
     </style>
     <title>website</title>
   </head>
   <body>
+    <div class="contact flex-center"><a href="contact">leave a message</a></div>
     <div class="center">
       <h1>welcome to my website</h1>
+
       <button id="getData">get quotes</button>
     </div>
     <hr />
